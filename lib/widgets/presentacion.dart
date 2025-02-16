@@ -60,18 +60,23 @@ class Presentacion extends StatelessWidget {
               ),
               SizedBox(height: 20), // Espacio entre el título y el texto
               // Texto descriptivo
-              Text(
-                "Somos una consultora/bróker conformada por un grupo de profesionales Actuarios, Licenciados en Administración y Economía y Contadores, matriculados como productores asesores de seguros con vasta experiencia en la industria aseguradora.\n\n"
-                "Nuestra estrategia de trabajo se basa en un exhaustivo análisis y permanente monitoreo de las necesidades de cada cliente.\n\n"
-                "La permanente actualización de nuestras capacidades tiene por objeto para dar a nuestros clientes y posibles prospectos, una mejor prestación de servicio y un mayor valor agregado, en la búsqueda de generar relaciones de largo plazo en entera confianza.\n\n"
-                "Auditamos su portfolio de seguros actual con el propósito de poder brindar el mejor asesoramiento, análisis de riesgo y administración de su cartera de riesgos en lo relativo a la exposición a riesgo de su patrimonio y en virtud de esto, a la adecuación de sus coberturas de seguros patrimoniales, de responsabilidad civil, vida, colectivos y ART.\n\n"
-                "Los programas de seguros son colocados en compañías de primera línea que de acuerdo a los análisis económico-financieros cumplen con los requisitos de agilidad operativa y solvencia patrimonial exigidos por la Superintendencia de Seguros de la Nación y cuentan con reaseguros adecuados en empresas de reconocida trayectoria y solidez internacional.",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87, // Color del texto
-                  height: 1.5, // Espaciado entre líneas
+              Padding(
+                padding: const EdgeInsets.only(right: 200),
+                child: Text(
+                  "Somos una consultora/bróker conformada por un grupo de profesionales Actuarios, Licenciados en Administración y Economía y Contadores, matriculados como productores asesores de seguros con vasta experiencia en la industria aseguradora.\n\n"
+                  "Nuestra estrategia de trabajo se basa en un exhaustivo análisis y permanente monitoreo de las necesidades de cada cliente.\n\n"
+                  "La permanente actualización de nuestras capacidades tiene por objeto para dar a nuestros clientes y posibles prospectos, una mejor prestación de servicio y un mayor valor agregado, en la búsqueda de generar relaciones de largo plazo en entera confianza.\n\n"
+                  "Auditamos su portfolio de seguros actual con el propósito de poder brindar el mejor asesoramiento, análisis de riesgo y administración de su cartera de riesgos en lo relativo a la exposición a riesgo de su patrimonio y en virtud de esto, a la adecuación de sus coberturas de seguros patrimoniales, de responsabilidad civil, vida, colectivos y ART.\n\n"
+                  "Los programas de seguros son colocados en compañías de primera línea que de acuerdo a los análisis económico-financieros cumplen con los requisitos de agilidad operativa y solvencia patrimonial exigidos por la Superintendencia de Seguros de la Nación y cuentan con reaseguros adecuados en empresas de reconocida trayectoria y solidez internacional.",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF1B1D42), // Color del texto
+                    height: 1.5, // Espaciado entre líneas
+                  ),
                 ),
+                
               ),
+              SizedBox(height: 50),
             ],
           ),
         ),
