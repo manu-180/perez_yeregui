@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class SegurosWidget extends StatefulWidget {
   const SegurosWidget({super.key});
@@ -66,17 +67,21 @@ class SegurosWidgetState extends State<SegurosWidget> {
             "Conocé nuestros seguros",
             textAlign: TextAlign.start,
             style: TextStyle(
-              fontSize: screenWidth > 1000 ? screenWidth * 0.03 : screenWidth * 0.07,
+              fontSize:
+                  screenWidth > 1000 ? screenWidth * 0.03 : screenWidth * 0.07,
               fontWeight: FontWeight.bold,
               color: Color(0xFF1B1D42),
-              
+            ),
           ),
-                    ),
-          SizedBox(height: screenWidth * 0.02), // Espacio relativo al ancho de la pantalla
+          SizedBox(
+              height: screenWidth *
+                  0.02), // Espacio relativo al ancho de la pantalla
           // Usamos un LayoutBuilder para manejar el diseño responsivo
           LayoutBuilder(
             builder: (context, constraints) {
-              int crossAxisCount = screenWidth > 1000 ? 4 : 2; // 4 columnas si > 1000, 2 columnas si <= 1000
+              int crossAxisCount = screenWidth > 1000
+                  ? 4
+                  : 2; // 4 columnas si > 1000, 2 columnas si <= 1000
 
               return GridView.builder(
                 shrinkWrap: true,
@@ -140,14 +145,20 @@ class _SeguroItemState extends State<SeguroItem> {
             children: [
               FaIcon(
                 widget.icon,
-                size: size.width > 1000 ? size.width * 0.03 : size.width * 0.07, // Tamaño relativo al ancho de la pantalla
+                size: size.width > 1000
+                    ? size.width * 0.03
+                    : size.width *
+                        0.07, // Tamaño relativo al ancho de la pantalla
                 color: _isHovered ? Color(0xFFD1AD7C) : Colors.black,
               ),
               SizedBox(height: size.width * 0.01),
               Text(
                 widget.title,
                 style: TextStyle(
-                  fontSize: size.width > 1000 ? size.width * 0.012 : size.width * 0.02, // Tamaño relativo al ancho de la pantalla
+                  fontSize: size.width > 1000
+                      ? size.width * 0.012
+                      : size.width *
+                          0.02, // Tamaño relativo al ancho de la pantalla
                   fontWeight: FontWeight.bold,
                   color: _isHovered ? Color(0xFFD1AD7C) : Colors.black,
                 ),
@@ -156,36 +167,46 @@ class _SeguroItemState extends State<SeguroItem> {
               Text(
                 widget.subtitle,
                 style: TextStyle(
-                  fontSize:size.width > 1000 ? size.width * 0.011 : size.width * 0.019, // Tamaño relativo al ancho de la pantalla
+                  fontSize: size.width > 1000
+                      ? size.width * 0.011
+                      : size.width *
+                          0.019, // Tamaño relativo al ancho de la pantalla
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: size.width * 0.01), // Espacio relativo al ancho de la pantalla
               SizedBox(
-                width:  size.width > 1000 ? size.width * 0.1 : size.width * 0.2,
-                height:  size.width > 1000 ? size.width * 0.02 : size.width * 0.05,
+                  height: size.width *
+                      0.01), // Espacio relativo al ancho de la pantalla
+              SizedBox(
+                width: size.width > 1000 ? size.width * 0.1 : size.width * 0.2,
+                height:
+                    size.width > 1000 ? size.width * 0.02 : size.width * 0.05,
                 child: OutlinedButton(
-  onPressed: () {},
-  style: OutlinedButton.styleFrom(
-    side: BorderSide(
-      color: _isHovered ? Color(0xFFD1AD7C) : Colors.black,
-    ),
-    backgroundColor: _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
-    minimumSize: Size.zero, // Elimina el tamaño mínimo predeterminado
-    padding: EdgeInsets.zero, // Elimina el padding interno
-    tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Reduce el área de toque
-    alignment: Alignment.center, // Alinea el texto al centro
-  ),
-  child: Text(
-    "Conocé más",
-    style: TextStyle(
-      color: _isHovered ? Colors.white : Colors.black,
-      fontSize: size.width > 1000 ? size.width * 0.008 : size.width * 0.018,
-    ),
-  ),
-),
+                  onPressed: () => context.go("/contacto"),
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(
+                      color: _isHovered ? Color(0xFFD1AD7C) : Colors.black,
+                    ),
+                    backgroundColor:
+                        _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
+                    minimumSize:
+                        Size.zero, // Elimina el tamaño mínimo predeterminado
+                    padding: EdgeInsets.zero, // Elimina el padding interno
+                    tapTargetSize: MaterialTapTargetSize
+                        .shrinkWrap, // Reduce el área de toque
+                    alignment: Alignment.center, // Alinea el texto al centro
+                  ),
+                  child: Text(
+                    "Conocé más",
+                    style: TextStyle(
+                      color: _isHovered ? Colors.white : Colors.black,
+                      fontSize: size.width > 1000
+                          ? size.width * 0.008
+                          : size.width * 0.018,
+                    ),
+                  ),
+                ),
               )
-  
             ],
           ),
         ),

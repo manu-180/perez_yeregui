@@ -11,7 +11,10 @@ class Footer extends StatefulWidget {
 
 class FooterState extends State<Footer> {
   final List<String> services = [
-    "Inicio", "Quienes Somos", "Servicios", "Contacto"
+    "Inicio",
+    "Quienes Somos",
+    "Servicios",
+    "Contacto"
   ];
 
   int hoverIndex = -1;
@@ -87,7 +90,8 @@ class FooterState extends State<Footer> {
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto', // Puedes cambiar la fuente según tus necesidades
+                  fontFamily:
+                      'Roboto', // Puedes cambiar la fuente según tus necesidades
                 ),
               ),
               // Texto "& ASOCIADOS"
@@ -127,11 +131,11 @@ class FooterState extends State<Footer> {
                   case "Inicio":
                     context.go("/");
                   case "Quienes Somos":
-                    context.go("/");
+                    context.go("/quienes-somos");
                   case "Servicios":
-                    context.go("/");
+                    context.go("/servicios");
                   case "Contacto":
-                    context.go("/");
+                    context.go("/contacto");
                 }
               },
               onHover: (isHovered) {
@@ -170,8 +174,10 @@ class FooterState extends State<Footer> {
           children: [
             _buildContactInfo(Icons.phone, "+54 11 1234-5678"),
             _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar"),
-            _buildContactInfo(Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
-            _buildContactInfo(Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
+            _buildContactInfo(
+                Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
+            _buildContactInfo(
+                Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
           ],
         ),
       ],
@@ -197,7 +203,8 @@ class FooterState extends State<Footer> {
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto', // Puedes cambiar la fuente según tus necesidades
+                  fontFamily:
+                      'Roboto', // Puedes cambiar la fuente según tus necesidades
                 ),
               ),
               // Texto "& ASOCIADOS"
@@ -226,15 +233,17 @@ class FooterState extends State<Footer> {
         ),
 
         // Segunda Columna (Listado de Servicios)
-       
+
         // Tercera Columna (Información de Contacto)
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _buildContactInfo(Icons.phone, "+54 11 1234-5678"),
             _buildContactInfo(Icons.email, "seguros@perezyeregui.com.ar"),
-            _buildContactInfo(Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
-            _buildContactInfo(Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
+            _buildContactInfo(
+                Icons.location_on, "Av. Corrientes 1234, CABA, Argentina"),
+            _buildContactInfo(
+                Icons.access_time, "Lunes a Viernes, 9:00 AM - 6:00 PM"),
           ],
         ),
       ],

@@ -30,6 +30,8 @@ class Presentacion extends StatelessWidget {
 
   // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -61,7 +63,7 @@ class Presentacion extends StatelessWidget {
               SizedBox(height: 20), // Espacio entre el título y el texto
               // Texto descriptivo
               Padding(
-                padding: const EdgeInsets.only(right: 200),
+                padding: EdgeInsets.only(right: size.width * 0.05),
                 child: Text(
                   "Somos una consultora/bróker conformada por un grupo de profesionales Actuarios, Licenciados en Administración y Economía y Contadores, matriculados como productores asesores de seguros con vasta experiencia en la industria aseguradora.\n\n"
                   "Nuestra estrategia de trabajo se basa en un exhaustivo análisis y permanente monitoreo de las necesidades de cada cliente.\n\n"
@@ -74,7 +76,6 @@ class Presentacion extends StatelessWidget {
                     height: 1.5, // Espaciado entre líneas
                   ),
                 ),
-                
               ),
               SizedBox(height: 50),
             ],
@@ -86,6 +87,8 @@ class Presentacion extends StatelessWidget {
 
   // Diseño para pantallas pequeñas (<= 1000 px)
   Widget _buildMobileLayout(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -102,7 +105,8 @@ class Presentacion extends StatelessWidget {
         SizedBox(height: 40), // Espacio entre la imagen y el texto
         // Contenido debajo
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20), // Padding horizontal
+          padding: EdgeInsets.symmetric(
+              horizontal: size.width * 0.05), // Padding horizontal
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

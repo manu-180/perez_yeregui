@@ -14,16 +14,16 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SizedBox(
-          width: double.infinity, 
+          width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, 
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Encabezado(),
               SizedBox(height: 100),
               SegurosWidget(),
               SizedBox(height: 150),
               Footer()
-            ], 
+            ],
           ),
         ),
       ),

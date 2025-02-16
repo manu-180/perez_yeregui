@@ -76,7 +76,10 @@ class Contacto extends StatelessWidget {
       children: [
         Text(
           "Contacto",
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color(0xFF1B1D42)),
+          style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF1B1D42)),
         ),
         SizedBox(height: 10),
         Text(
@@ -128,11 +131,13 @@ class Contacto extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xFF1B1D42),
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
         child: Text(
           "ENVIAR",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
     );

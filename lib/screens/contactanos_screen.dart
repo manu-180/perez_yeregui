@@ -12,10 +12,7 @@ class ContactanosScreen extends StatelessWidget {
       appBar: CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Contacto(),
-            Footer()
-          ],
+          children: [Contacto(), Footer()],
         ),
       ),
     );

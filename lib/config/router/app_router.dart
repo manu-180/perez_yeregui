@@ -7,7 +7,6 @@ import 'package:perezyeregui/screens/servicios.dart';
 
 import '../../screens/home_screen.dart';
 
-
 final appRouter = GoRouter(
   initialLocation: "/",
   routes: [
@@ -27,8 +26,5 @@ final appRouter = GoRouter(
       path: "/contacto",
       builder: (context, state) => const ContactanosScreen(),
     ),
-          
-
-    
   ],
 );

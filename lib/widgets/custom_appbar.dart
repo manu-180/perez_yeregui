@@ -49,7 +49,6 @@ class CustomAppBarState extends State<CustomAppBar> {
               ),
               onTap: () => context.go("/"),
             ),
-            
             GestureDetector(
               child: Text(
                 "SEGUROS - REASEGUROS",

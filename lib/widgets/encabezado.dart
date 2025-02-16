@@ -9,7 +9,8 @@ class Encabezado extends StatefulWidget {
   EncabezadoState createState() => EncabezadoState();
 }
 
-class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMixin {
+class EncabezadoState extends State<Encabezado>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
   late Animation<double> _fadeAnimation;
@@ -50,7 +51,9 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
 
     return Container(
       width: double.infinity, // Ocupa toda la pantalla
-      height: size.width > 1000 ? 500 : 700, // Ajusta la altura según el ancho de la pantalla
+      height: size.width > 1000
+          ? 500
+          : 700, // Ajusta la altura según el ancho de la pantalla
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
@@ -93,7 +96,9 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
                         TyperAnimatedText(
                           "Protegé lo que más valorás.",
                           textStyle: GoogleFonts.montserrat(
-                            fontSize: size.width > 1000 ? size.width * 0.03 : size.width * 0.5,
+                            fontSize: size.width > 1000
+                                ? size.width * 0.03
+                                : size.width * 0.5,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -132,7 +137,8 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 30, vertical: 15),
                               backgroundColor: Colors.transparent,
                               shadowColor: Colors.transparent,
                             ),
@@ -150,13 +156,13 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
                     ),
                     SizedBox(width: 20),
                     SizedBox(
-                      
-                          width: size.width * 0.15,
-                          height: size.width * 0.035,
+                      width: size.width * 0.15,
+                      height: size.width * 0.035,
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 15),
                           backgroundColor: Color(0xFFD1AD7C),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
@@ -216,7 +222,8 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
                 TyperAnimatedText(
                   "Protegé lo que más valorás.",
                   textStyle: GoogleFonts.montserrat(
-                    fontSize: size.width * 0.06, // Tamaño de fuente más grande en móvil
+                    fontSize: size.width *
+                        0.06, // Tamaño de fuente más grande en móvil
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -238,54 +245,53 @@ class EncabezadoState extends State<Encabezado> with SingleTickerProviderStateMi
           ),
         ),
         SizedBox(height: 20),
-  
-            MouseRegion(
-              onEnter: (_) => setState(() => _isHovered = true),
-              onExit: (_) => setState(() => _isHovered = false),
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                decoration: BoxDecoration(
-                  color: _isHovered ? Color(0xFFD1AD7C) : Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                  ),
-                  child: Text(
-                    "VER SEGUROS",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: _isHovered ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-              ),
+
+        MouseRegion(
+          onEnter: (_) => setState(() => _isHovered = true),
+          onExit: (_) => setState(() => _isHovered = false),
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 300),
+            decoration: BoxDecoration(
+              color: _isHovered ? Color(0xFFD1AD7C) : Colors.white,
+              borderRadius: BorderRadius.circular(30),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
+            child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                backgroundColor: Color(0xFFD1AD7C),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
               ),
-              
               child: Text(
-                "CONTACTANOS",
+                "VER SEGUROS",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: _isHovered ? Colors.white : Colors.black,
                 ),
               ),
             ),
+          ),
+        ),
+        SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            backgroundColor: Color(0xFFD1AD7C),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+          child: Text(
+            "CONTACTANOS",
+            style: GoogleFonts.montserrat(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ),
 
         SizedBox(height: 40), // Espacio adicional antes de la imagen
         // Imagen circular al final
