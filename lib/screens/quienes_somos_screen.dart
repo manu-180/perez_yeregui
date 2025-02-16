@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:perezyeregui/widgets/custom_appbar.dart';
+import 'package:perezyeregui/widgets/footer.dart';
+import 'package:perezyeregui/widgets/presentacion.dart';
+
+class QuienesSomosScreen extends StatelessWidget {
+  const QuienesSomosScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Presentacion(),
+            Footer(),
+          ],
+        ),
+      )
+    );
+  }
+}
