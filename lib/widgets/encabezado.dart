@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -135,7 +136,7 @@ class EncabezadoState extends State<Encabezado>
                           width: size.width * 0.15,
                           height: size.width * 0.035,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => context.go('/servicios'),
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 15),
@@ -159,7 +160,7 @@ class EncabezadoState extends State<Encabezado>
                       width: size.width * 0.15,
                       height: size.width * 0.035,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => context.go('/contacto'),
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
                               horizontal: 30, vertical: 15),
