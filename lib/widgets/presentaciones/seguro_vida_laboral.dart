@@ -42,7 +42,7 @@ class SeguroVidaLaboral extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20), // Bordes redondeados
           child: Image.asset(
-            'assets/images/quienessomos.png', // Ruta de la imagen en assets
+            'assets/images/vida-laboral.png', // Ruta de la imagen en assets
             width: 500, // Ancho de la imagen
             height: 400, // Alto de la imagen
             fit: BoxFit.cover, // Ajuste de la imagen
@@ -111,7 +111,7 @@ Destinado a personas que por su ocupación o profesión independiente realizan a
         ClipRRect(
           borderRadius: BorderRadius.circular(20), // Bordes redondeados
           child: Image.asset(
-            'assets/images/quienessomos.png', // Ruta de la imagen en assets
+            'assets/images/vida-laboral.png', // Ruta de la imagen en assets
             width: 300, // Ancho de la imagen
             height: 200, // Alto de la imagen
             fit: BoxFit.cover, // Ajuste de la imagen

@@ -42,7 +42,7 @@ class SeguroOtros extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(20), // Bordes redondeados
           child: Image.asset(
-            'assets/images/quienessomos.png', // Ruta de la imagen en assets
+            'assets/images/otros.png', // Ruta de la imagen en assets
             width: 500, // Ancho de la imagen
             height: 400, // Alto de la imagen
             fit: BoxFit.cover, // Ajuste de la imagen
@@ -119,7 +119,7 @@ Se amparar todo tipo de maquinarias, específicamente aquellas en las cuales un 
         ClipRRect(
           borderRadius: BorderRadius.circular(20), // Bordes redondeados
           child: Image.asset(
-            'assets/images/quienessomos.png', // Ruta de la imagen en assets
+            'assets/images/otros.png', // Ruta de la imagen en assets
             width: 300, // Ancho de la imagen
             height: 200, // Alto de la imagen
             fit: BoxFit.cover, // Ajuste de la imagen
