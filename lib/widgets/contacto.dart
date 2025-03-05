@@ -57,11 +57,11 @@ class Contacto extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.email, color: Color(0xFF1B1D42), size: 24),
+            Icon(Icons.email, color: Color(0xFF5C5664), size: 24),
             SizedBox(width: 10),
             SelectableText(
               "seguros@perezyeregui.com.ar",
-              style: TextStyle(fontSize: 18, color: Color(0xFF1B1D42)),
+              style: TextStyle(fontSize: 18, color: Color(0xFF5C5664)),
             ),
           ],
         ),
@@ -79,7 +79,7 @@ class Contacto extends StatelessWidget {
           style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF1B1D42)),
+              color: Color(0xFF5C5664)),
         ),
         SizedBox(height: 10),
         Text(
@@ -129,7 +129,7 @@ class Contacto extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF1B1D42),
+          backgroundColor: Color(0xFF5C5664),
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

@@ -57,7 +57,7 @@ class Presentacion extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1B1D42), // Color del título
+                  color: Color(0xFF5C5664), // Color del título
                 ),
               ),
               SizedBox(height: 20), // Espacio entre el título y el texto
@@ -72,7 +72,7 @@ class Presentacion extends StatelessWidget {
                   "Los programas de seguros son colocados en compañías de primera línea que de acuerdo a los análisis económico-financieros cumplen con los requisitos de agilidad operativa y solvencia patrimonial exigidos por la Superintendencia de Seguros de la Nación y cuentan con reaseguros adecuados en empresas de reconocida trayectoria y solidez internacional.",
                   style: TextStyle(
                     fontSize: 20,
-                    color: Color(0xFF1B1D42), // Color del texto
+                    color: Color(0xFF5C5664), // Color del texto
                     height: 1.5, // Espaciado entre líneas
                   ),
                 ),
@@ -116,7 +116,7 @@ class Presentacion extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1B1D42), // Color del título
+                  color: Color(0xFF5C5664), // Color del título
                 ),
               ),
               SizedBox(height: 20), // Espacio entre el título y el texto

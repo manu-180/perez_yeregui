@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,46 +26,107 @@ class CustomAppBarState extends State<CustomAppBar> {
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
-            Color(0xFF1B1D42),
-            Color(0xFF0E2A56),
+            Color(0xFF5C5664),
+            Color(0xFF5C5664),
           ],
         ),
       ),
-      child: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            GestureDetector(
-              child: Text(
-                "PÉREZ YEREGUI & ASOCIADOS",
-                style: GoogleFonts.montserrat(
-                  fontSize: screenWidth > 1000 ? 16 : 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 1.2,
-                ),
+      child: isDesktop
+          ? AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        child: Text(
+                          "PÉREZ YEREGUI & ASOCIADOS",
+                          style: GoogleFonts.montserrat(
+                            fontSize: screenWidth > 1000 ? 16 : 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        onTap: () => context.go("/"),
+                      ),
+                      GestureDetector(
+                        child: Text(
+                          "SEGUROS - REASEGUROS",
+                          style: GoogleFonts.montserrat(
+                            fontSize: 12,
+                            color: Colors.white70,
+                            letterSpacing: 1.0,
+                          ),
+                        ),
+                        onTap: () => context.go("/"),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 30),
+                  IconButton(
+                    icon:
+                        FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon:
+                        FaIcon(FontAwesomeIcons.instagram, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon:
+                        FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                ],
               ),
-              onTap: () => context.go("/"),
-            ),
-            GestureDetector(
-              child: Text(
-                "SEGUROS - REASEGUROS",
-                style: GoogleFonts.montserrat(
-                  fontSize: 12,
-                  color: Colors.white70,
-                  letterSpacing: 1.0,
-                ),
+              centerTitle: false,
+              actions: isDesktop ? _buildNavBarItems() : [_buildMobileMenu()],
+            )
+          : AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    child: Text(
+                      "PÉREZ YEREGUI & ASOCIADOS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: screenWidth > 1000 ? 16 : 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    onTap: () => context.go("/"),
+                  ),
+                  GestureDetector(
+                    child: Text(
+                      "SEGUROS - REASEGUROS",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 12,
+                        color: Colors.white70,
+                        letterSpacing: 1.0,
+                      ),
+                    ),
+                    onTap: () => context.go("/"),
+                  ),
+                ],
               ),
-              onTap: () => context.go("/"),
+              centerTitle: false,
+              actions: isDesktop ? _buildNavBarItems() : [_buildMobileMenu()],
             ),
-          ],
-        ),
-        centerTitle: false,
-        actions: isDesktop ? _buildNavBarItems() : [_buildMobileMenu()],
-      ),
     );
   }
 
@@ -124,7 +186,7 @@ class CustomAppBarState extends State<CustomAppBar> {
         turns: _isMenuOpen ? 0.5 : 0.0, // 0.5 = 180° de rotación
         child: Icon(Icons.keyboard_arrow_down, color: Colors.white, size: 28),
       ),
-      color: Color(0xFF1B1D42),
+      color: Color(0xFF5C5664),
       itemBuilder: (context) => [
         _buildPopupMenuItem("Inicio"),
         _buildPopupMenuItem("Quienes Somos"),

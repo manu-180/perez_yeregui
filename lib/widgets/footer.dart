@@ -24,7 +24,7 @@ class FooterState extends State<Footer> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      color: Color(0xFF1B1D42),
+      color: Color(0xFF5C5664),
       padding: EdgeInsets.all(20),
       child: Column(
         children: [
@@ -32,30 +32,6 @@ class FooterState extends State<Footer> {
           screenWidth > 1000
               ? _buildDesktopLayout(context) // Diseño para pantallas grandes
               : _buildMobileLayout(context), // Diseño para pantallas pequeñas
-
-          // Redes Sociales
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.instagram, color: Colors.white),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
-                onPressed: () {},
-              ),
-            ],
-          ),
 
           // Derechos de Autor
           SizedBox(height: 20),
@@ -78,7 +54,7 @@ class FooterState extends State<Footer> {
       children: [
         // Primera Columna (Logo y Eslogan)
         Container(
-          color: Color(0xFF1B1D42), // Fondo azul oscuro
+          color: Color(0xFF5C5664), // Fondo azul oscuro
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -191,7 +167,7 @@ class FooterState extends State<Footer> {
       children: [
         // Primera Columna (Logo y Eslogan)
         Container(
-          color: Color(0xFF1B1D42), // Fondo azul oscuro
+          color: Color(0xFF5C5664), // Fondo azul oscuro
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

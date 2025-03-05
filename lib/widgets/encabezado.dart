@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -60,8 +61,8 @@ class EncabezadoState extends State<Encabezado>
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
-            Color(0xFF1B1D42), // Azul oscuro
-            Color(0xFF0E2A56), // Azul más claro
+            Color(0xFF5C5664), // Azul oscuro
+            Color(0xFF5C5664), // Azul más claro
           ],
         ),
       ),
@@ -214,6 +215,28 @@ class EncabezadoState extends State<Encabezado>
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Texto con animación de entrada
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: FaIcon(FontAwesomeIcons.instagram, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        SizedBox(height: size.width * 0.1),
         SlideTransition(
           position: _slideAnimation,
           child: FadeTransition(

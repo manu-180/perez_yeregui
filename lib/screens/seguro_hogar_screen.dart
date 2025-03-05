@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:perezyeregui/widgets/custom_appbar.dart';
 import 'package:perezyeregui/widgets/footer.dart';
-import 'package:perezyeregui/widgets/presentaciones/presentacion.dart';
+import 'package:perezyeregui/widgets/presentaciones/seguro_hogar.dart';
 
-class QuienesSomosScreen extends StatelessWidget {
-  const QuienesSomosScreen({super.key});
+class SeguroHogarScreen extends StatelessWidget {
+  const SeguroHogarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class QuienesSomosScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Presentacion(),
+              SeguroHogar(),
               Footer(),
             ],
           ),
