@@ -147,7 +147,7 @@ class EncabezadoState extends State<Encabezado>
                             child: Text(
                               "VER SEGUROS",
                               style: GoogleFonts.montserrat(
-                                fontSize: 14,
+                                fontSize: size.width * 0.012,
                                 fontWeight: FontWeight.bold,
                                 color: _isHovered ? Colors.white : Colors.black,
                               ),
@@ -173,7 +173,7 @@ class EncabezadoState extends State<Encabezado>
                         child: Text(
                           "CONTACTANOS",
                           style: GoogleFonts.montserrat(
-                            fontSize: 14,
+                            fontSize: size.width * 0.012,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -264,7 +264,7 @@ class EncabezadoState extends State<Encabezado>
         Text(
           "Elegí estar seguro.",
           style: GoogleFonts.montserrat(
-            fontSize: 18,
+            fontSize: size.width> 1000? size.width * 0.025:size.width * 0.05 ,
             color: Colors.white70,
           ),
         ),
@@ -280,7 +280,7 @@ class EncabezadoState extends State<Encabezado>
               borderRadius: BorderRadius.circular(30),
             ),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => context.go('/servicios'),
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 backgroundColor: Colors.transparent,
@@ -289,7 +289,7 @@ class EncabezadoState extends State<Encabezado>
               child: Text(
                 "VER SEGUROS",
                 style: GoogleFonts.montserrat(
-                  fontSize: 14,
+                  fontSize: size.width> 1000? size.width * 0.015:size.width * 0.03,
                   fontWeight: FontWeight.bold,
                   color: _isHovered ? Colors.white : Colors.black,
                 ),
@@ -299,7 +299,7 @@ class EncabezadoState extends State<Encabezado>
         ),
         SizedBox(height: 20),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () => context.go('/contacto'),
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
             backgroundColor: Color(0xFFD1AD7C),
@@ -310,7 +310,7 @@ class EncabezadoState extends State<Encabezado>
           child: Text(
             "CONTACTANOS",
             style: GoogleFonts.montserrat(
-              fontSize: 14,
+              fontSize: size.width> 1000? size.width * 0.015:size.width * 0.03,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -322,8 +322,8 @@ class EncabezadoState extends State<Encabezado>
         ClipOval(
           child: Image.asset(
             'assets/images/familia.png',
-            width: size.width > 1000 ? 30 : 250, // Tamaño más grande en móvil
-            height: size.width > 1000 ? 30 : 250,
+            width: size.width> 1000? size.width * 0.25:size.width * 0.6, // Tamaño más grande en móvil
+            height: size.width> 1000? size.width * 0.25:size.width * 0.6,
             fit: BoxFit.cover,
           ),
         ),

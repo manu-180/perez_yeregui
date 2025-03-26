@@ -156,68 +156,71 @@ class _SeguroItemState extends State<SeguroItem> {
       onExit: (_) => setState(() => _isHovered = false),
       child: SizedBox(
         height: size.width * 0.25, // Aumentado para mayor altura
-        child: Card(
-          elevation: _isHovered ? 5 : 2,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(
-                widget.icon,
-                size: isDesktop ? size.width * 0.03 : size.width * 0.09,
-                color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
-              ),
-              SizedBox(
-                  height: isDesktop ? size.width * 0.015 : size.width * 0.03),
-              Text(
-                widget.title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: isDesktop ? size.width * 0.012 : size.width * 0.04,
-                  fontWeight: FontWeight.bold,
+        child: GestureDetector(
+          child: Card(
+            elevation: _isHovered ? 5 : 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FaIcon(
+                  widget.icon,
+                  size: isDesktop ? size.width * 0.03 : size.width * 0.09,
                   color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
                 ),
-              ),
-              SizedBox(
-                  height: isDesktop ? size.width * 0.007 : size.width * 0.02),
-              Text(
-                widget.subtitle,
-                style: TextStyle(
-                  fontSize: isDesktop ? size.width * 0.011 : size.width * 0.03,
-                  color: Color(0xFF5C5664),
-                ),
-              ),
-              SizedBox(
-                  height: isDesktop ? size.width * 0.007 : size.width * 0.025),
-              SizedBox(
-                width: isDesktop ? size.width * 0.1 : size.width * 0.25,
-                height: isDesktop ? size.width * 0.02 : size.width * 0.06,
-                child: OutlinedButton(
-                  onPressed: () => context.push(widget.ruta),
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(
-                      color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
-                    ),
-                    backgroundColor:
-                        _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
-                    minimumSize:
-                        Size.zero, // Elimina el tamaño mínimo predeterminado
-                    padding: EdgeInsets.zero, // Elimina el padding interno
-                    tapTargetSize: MaterialTapTargetSize
-                        .shrinkWrap, // Reduce el área de toque
-                    alignment: Alignment.center, // Alinea el texto al centro
-                  ),
-                  child: Text(
-                    "Conocé más",
-                    style: TextStyle(
-                      color: _isHovered ? Colors.white : Color(0xFF5C5664),
-                      fontSize:
-                          isDesktop ? size.width * 0.008 : size.width * 0.025,
-                    ),
+                SizedBox(
+                    height: isDesktop ? size.width * 0.015 : size.width * 0.03),
+                Text(
+                  widget.title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: isDesktop ? size.width * 0.012 : size.width * 0.04,
+                    fontWeight: FontWeight.bold,
+                    color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
                   ),
                 ),
-              )
-            ],
+                SizedBox(
+                    height: isDesktop ? size.width * 0.007 : size.width * 0.02),
+                Text(
+                  widget.subtitle,
+                  style: TextStyle(
+                    fontSize: isDesktop ? size.width * 0.011 : size.width * 0.03,
+                    color: Color(0xFF5C5664),
+                  ),
+                ),
+                SizedBox(
+                    height: isDesktop ? size.width * 0.007 : size.width * 0.025),
+                SizedBox(
+                  width: isDesktop ? size.width * 0.1 : size.width * 0.25,
+                  height: isDesktop ? size.width * 0.02 : size.width * 0.06,
+                  child: OutlinedButton(
+                    onPressed: () => context.push(widget.ruta),
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: _isHovered ? Color(0xFFD1AD7C) : Color(0xFF5C5664),
+                      ),
+                      backgroundColor:
+                          _isHovered ? Color(0xFFD1AD7C) : Colors.transparent,
+                      minimumSize:
+                          Size.zero, // Elimina el tamaño mínimo predeterminado
+                      padding: EdgeInsets.zero, // Elimina el padding interno
+                      tapTargetSize: MaterialTapTargetSize
+                          .shrinkWrap, // Reduce el área de toque
+                      alignment: Alignment.center, // Alinea el texto al centro
+                    ),
+                    child: Text(
+                      "Conocé más",
+                      style: TextStyle(
+                        color: _isHovered ? Colors.white : Color(0xFF5C5664),
+                        fontSize:
+                            isDesktop ? size.width * 0.008 : size.width * 0.025,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
+          onTap: () => context.push(widget.ruta),
         ),
       ),
     );
