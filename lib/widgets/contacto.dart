@@ -21,8 +21,8 @@ class _ContactoState extends State<Contacto> {
 
   Future<void> enviarFormulario() async {
     const serviceId = 'service_0tzx0aw';
-    const templateId = 'template_0acu8r8'; // ← tu Template ID real
-    const publicKey = 'UapUkrGXYrXahZMcZ';    // ← tu Public Key real
+    const templateId = 'template_0acu8r8'; 
+    const publicKey = 'UapUkrGXYrXahZMcZ';   
 
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
 
