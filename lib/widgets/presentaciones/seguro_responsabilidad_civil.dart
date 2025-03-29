@@ -10,8 +10,7 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal:
-              screenWidth > 1000 ? 40 : 20, // Padding horizontal dinámico
+          horizontal: screenWidth > 1000 ? 40 : 20,
           vertical: 40,
         ),
         decoration: BoxDecoration(
@@ -19,84 +18,74 @@ class SeguroResponsabilidadCivil extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFF5F5F5), // Fondo claro
-              Color(0xFFE0E0E0), // Fondo un poco más oscuro
+              Color(0xFFF5F5F5),
+              Color(0xFFE0E0E0),
             ],
           ),
         ),
         child: screenWidth > 1000
-            ? _buildDesktopLayout(context) // Diseño para pantallas grandes
-            : _buildMobileLayout(context), // Diseño para pantallas pequeñas
+            ? _buildDesktopLayout(context)
+            : _buildMobileLayout(context),
       ),
     );
   }
 
-  // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Imagen a la izquierda
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/civil.png', // Ruta de la imagen en assets
-            width: 500, // Ancho de la imagen
-            height: 400, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/civil.png',
+            width: 500,
+            height: 400,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(width: 40), // Espacio entre la imagen y el texto
-        // Contenido a la derecha
+        SizedBox(width: 40),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Responsabilidad Civil Profesional",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(right: size.width * 0.05),
-                child: Text(
-                  '''¿A qué se le llama Seguro de Responsabilidad Civil Profesional?
-
-Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.
-Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.
-
-A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.
-
-Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:
-
-•	Contadores
-•	Abogados
-•	Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)
-•	Productores de Seguros
-•	Administradores de Consorcios
-•	Arquitectos
-•	Ingenieros
-•	Locadores de Inmuebles
-•	Sujetos del GNC
-La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.
-
-
-
-
-
-''',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF5C5664), // Color del texto
-                    height: 1.5, // Espaciado entre líneas
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF5C5664),
+                      height: 1.5,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      TextSpan(
+                        text:
+                            'Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.\n'
+                            'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n\n'
+                            'A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.\n\n'
+                            'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n\n'
+                            '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n\n'
+                            'La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.',
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -108,70 +97,61 @@ La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y
     );
   }
 
-  // Diseño para pantallas pequeñas (<= 1000 px)
   Widget _buildMobileLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Imagen arriba
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/civil.png', // Ruta de la imagen en assets
-            width: 300, // Ancho de la imagen
-            height: 200, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/civil.png',
+            width: 300,
+            height: 200,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(height: 40), // Espacio entre la imagen y el texto
-        // Contenido debajo
+        SizedBox(height: 40),
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: size.width * 0.05), // Padding horizontal
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Responsabilidad Civil Profesional",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
-              Text(
-                '''¿A qué se le llama Seguro de Responsabilidad Civil Profesional?
-
-Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.
-Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.
-
-A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.
-
-Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:
-
-•	Contadores
-•	Abogados
-•	Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)
-•	Productores de Seguros
-•	Administradores de Consorcios
-•	Arquitectos
-•	Ingenieros
-•	Locadores de Inmuebles
-•	Sujetos del GNC
-La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.
-
-
-
-''',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87, // Color del texto
-                  height: 1.5, // Espaciado entre líneas
+              SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
+                    height: 1.5,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: '¿A qué se le llama Seguro de Responsabilidad Civil Profesional?\n\n',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          'Es muy importante conocer los alcances y responsabilidades que implica la actividad profesional. Y qué tipo de seguro la ampara.\n'
+                          'Cuando hablamos de responsabilidad civil, nos referimos a la obligación que una persona tiene de reparar un daño causado a otra, a través del pago de un resarcimiento o indemnización.\n\n'
+                          'A través de este tipo de cobertura, pueden hacer frente a los daños materiales o personales que hayan causado a sus clientes, mediante el ejercicio de su profesión. Ya sea de forma involuntaria o por acción u omisión.\n\n'
+                          'Este producto permite que los profesionales puedan asegurar su patrimonio frente a reclamos de terceros que deriven del desempeño de su actividad profesional.  La amplia gama de coberturas incluye a:\n\n'
+                          '• Contadores\n• Abogados\n• Profesionales de la Salud (Médicos, Odontólogos, Bioquímicos, Farmacéuticos, Psicólogos, Kinesiólogos, Técnicos y Auxiliares de Medicina, entre otros)\n• Productores de Seguros\n• Administradores de Consorcios\n• Arquitectos\n• Ingenieros\n• Locadores de Inmuebles\n• Sujetos del GNC\n\n'
+                          'La asistencia, entre otros beneficios, incluye Asesoramiento, Asistencia Legal y Defensa en Juicio.',
+                    ),
+                  ],
                 ),
               ),
             ],

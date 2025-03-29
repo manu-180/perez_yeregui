@@ -196,8 +196,8 @@ class EncabezadoState extends State<Encabezado>
               child: ClipOval(
                 child: Image.asset(
                   'assets/images/familia.png',
-                  width: size.width * 0.3,
-                  height: size.width * 0.3,
+                  width: size.width * 0.35,
+                  height: size.width * 0.35,
                   fit: BoxFit.cover,
                 ),
               ),

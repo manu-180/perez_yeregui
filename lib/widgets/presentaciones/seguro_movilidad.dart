@@ -10,8 +10,7 @@ class SeguroMovilidad extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal:
-              screenWidth > 1000 ? 40 : 20, // Padding horizontal dinámico
+          horizontal: screenWidth > 1000 ? 40 : 20,
           vertical: 40,
         ),
         decoration: BoxDecoration(
@@ -19,79 +18,50 @@ class SeguroMovilidad extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFF5F5F5), // Fondo claro
-              Color(0xFFE0E0E0), // Fondo un poco más oscuro
+              Color(0xFFF5F5F5),
+              Color(0xFFE0E0E0),
             ],
           ),
         ),
         child: screenWidth > 1000
-            ? _buildDesktopLayout(context) // Diseño para pantallas grandes
-            : _buildMobileLayout(context), // Diseño para pantallas pequeñas
+            ? _buildDesktopLayout(context)
+            : _buildMobileLayout(context),
       ),
     );
   }
 
-  // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Imagen a la izquierda
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/bici.png', // Ruta de la imagen en assets
-            width: 500, // Ancho de la imagen
-            height: 400, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/bici.png',
+            width: 500,
+            height: 400,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(width: 40), // Espacio entre la imagen y el texto
-        // Contenido a la derecha
+        SizedBox(width: 40),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Seguro Integral Ciclistas / Ecomovilidad",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(right: size.width * 0.05),
-                child: Text(
-                  '''Si cuidás el planeta, nosotros te cuidamos a vos y a tu monopatín.
-Ecomovilidad es moverse sin dañar el medio ambiente. Movete tranquilo con una cobertura integral, combinando seguros responsabilidad civil, robo, accidentes personales y salud.
-
-COBERTURAS PRINCIPALES
-
-•	Robo: en República Argentina. Posibilidad de cubrir por robo accesorios fijos de la bicicleta.
-•	Accidentes Personales para el ciclista. Incluye muerte accidental, invalidez y asistencia médico farmacéutica.
-•	Salud: cobertura indemnizatoria que complementa en forma independiente a cualquier otro tipo de prestación similar. En este caso es un seguro de fracturas como consecuencia inmediata de un accidente.
-•	Responsabilidad Civil del Ciclista: cobertura por daños a terceros como consecuencia del uso de bicicletas. Ámbito de la cobertura: República Argentina. Sin franquicias.
-
-Asegurar:
-•	BICICLETAS ALTA-MEDIA GAMA 
-•	BICICLETAS ELECTRICAS
-•	MONOPATINES ELECTRICOS
-•	MOTOS ELECTRICAS QUE NO PUEDEN PATENTARSE
-
-
-''',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF5C5664), // Color del texto
-                    height: 1.5, // Espaciado entre líneas
-                  ),
-                ),
+                child: _buildRichText(),
               ),
               SizedBox(height: 50),
             ],
@@ -101,72 +71,87 @@ Asegurar:
     );
   }
 
-  // Diseño para pantallas pequeñas (<= 1000 px)
   Widget _buildMobileLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Imagen arriba
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/bici.png', // Ruta de la imagen en assets
-            width: 300, // Ancho de la imagen
-            height: 200, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/bici.png',
+            width: 300,
+            height: 200,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(height: 40), // Espacio entre la imagen y el texto
-        // Contenido debajo
+        SizedBox(height: 40),
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: size.width * 0.05), // Padding horizontal
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Seguro Integral Ciclistas / Ecomovilidad",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
-              Text(
-                '''Si cuidás el planeta, nosotros te cuidamos a vos y a tu monopatín.
-Ecomovilidad es moverse sin dañar el medio ambiente. Movete tranquilo con una cobertura integral, combinando seguros responsabilidad civil, robo, accidentes personales y salud.
-
-COBERTURAS PRINCIPALES
-
-•	Robo: en República Argentina. Posibilidad de cubrir por robo accesorios fijos de la bicicleta.
-•	Accidentes Personales para el ciclista. Incluye muerte accidental, invalidez y asistencia médico farmacéutica.
-•	Salud: cobertura indemnizatoria que complementa en forma independiente a cualquier otro tipo de prestación similar. En este caso es un seguro de fracturas como consecuencia inmediata de un accidente.
-•	Responsabilidad Civil del Ciclista: cobertura por daños a terceros como consecuencia del uso de bicicletas. Ámbito de la cobertura: República Argentina. Sin franquicias.
-
-Asegurar:
-•	BICICLETAS ALTA-MEDIA GAMA 
-•	BICICLETAS ELECTRICAS
-•	MONOPATINES ELECTRICOS
-•	MOTOS ELECTRICAS QUE NO PUEDEN PATENTARSE
-
-
-
-''',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87, // Color del texto
-                  height: 1.5, // Espaciado entre líneas
-                ),
-              ),
+              SizedBox(height: 20),
+              _buildRichText(),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildRichText() {
+    return RichText(
+      text: TextSpan(
+        style: TextStyle(
+          fontSize: 20,
+          color: Color(0xFF5C5664),
+          height: 1.5,
+        ),
+        children: [
+          TextSpan(
+            text:
+                'Si cuidás el planeta, nosotros te cuidamos a vos y a tu monopatín.\nEcomovilidad es moverse sin dañar el medio ambiente. Movete tranquilo con una cobertura integral, combinando seguros responsabilidad civil, robo, accidentes personales y salud.\n\n',
+          ),
+          TextSpan(
+            text: 'COBERTURAS PRINCIPALES\n\n',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text:
+                '• Robo: en República Argentina. Posibilidad de cubrir por robo accesorios fijos de la bicicleta.\n'
+                '• Accidentes Personales para el ciclista. Incluye muerte accidental, invalidez y asistencia médico farmacéutica.\n'
+                '• Salud: cobertura indemnizatoria que complementa en forma independiente a cualquier otro tipo de prestación similar. En este caso es un seguro de fracturas como consecuencia inmediata de un accidente.\n'
+                '• Responsabilidad Civil del Ciclista: cobertura por daños a terceros como consecuencia del uso de bicicletas. Ámbito de la cobertura: República Argentina. Sin franquicias.\n\n',
+          ),
+          TextSpan(
+            text: 'Asegurar:\n\n',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text:
+                '• BICICLETAS ALTA-MEDIA GAMA\n'
+                '• BICICLETAS ELECTRICAS\n'
+                '• MONOPATINES ELECTRICOS\n'
+                '• MOTOS ELECTRICAS QUE NO PUEDEN PATENTARSE\n',
+          ),
+        ],
+      ),
     );
   }
 }

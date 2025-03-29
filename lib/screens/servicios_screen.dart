@@ -9,10 +9,11 @@ class ServiciosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
+            CustomAppBar(),
             SizedBox(height: 30),
             SegurosWidget(),
             SizedBox(height: 100),

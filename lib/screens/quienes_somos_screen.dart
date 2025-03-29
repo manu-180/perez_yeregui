@@ -9,10 +9,10 @@ class QuienesSomosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              CustomAppBar(),
               Presentacion(),
               Footer(),
             ],

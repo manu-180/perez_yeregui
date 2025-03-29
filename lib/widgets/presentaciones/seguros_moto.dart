@@ -10,8 +10,7 @@ class SegurosMoto extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal:
-              screenWidth > 1000 ? 40 : 20, // Padding horizontal dinámico
+          horizontal: screenWidth > 1000 ? 40 : 20,
           vertical: 40,
         ),
         decoration: BoxDecoration(
@@ -19,74 +18,50 @@ class SegurosMoto extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFF5F5F5), // Fondo claro
-              Color(0xFFE0E0E0), // Fondo un poco más oscuro
+              Color(0xFFF5F5F5),
+              Color(0xFFE0E0E0),
             ],
           ),
         ),
         child: screenWidth > 1000
-            ? _buildDesktopLayout(context) // Diseño para pantallas grandes
-            : _buildMobileLayout(context), // Diseño para pantallas pequeñas
+            ? _buildDesktopLayout(context)
+            : _buildMobileLayout(context),
       ),
     );
   }
 
-  // Diseño para pantallas grandes (> 1000 px)
   Widget _buildDesktopLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Imagen a la izquierda
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/moto.png', // Ruta de la imagen en assets
-            width: 500, // Ancho de la imagen
-            height: 400, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/moto.png',
+            width: 500,
+            height: 400,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(width: 40), // Espacio entre la imagen y el texto
-        // Contenido a la derecha
+        SizedBox(width: 40),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Seguro Motos Alta Gama",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(right: size.width * 0.05),
-                child: Text(
-                  '''Si sos fanático de las motos de alta gama y disfrutas de la libertad, los paisajes y las nuevas culturas; 
-Pensamos en tus necesidades y diseñamos un producto para que puedas disfrutar de tu moto de alta cilindrada.
-
-Cobertura: 
-
-•	Robo total
-•	Incendio total
-•	Destrucción Total
-•	Grúa
-
-
-
-''',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF5C5664), // Color del texto
-                    height: 1.5, // Espaciado entre líneas
-                  ),
-                ),
+                child: _buildRichText(),
               ),
               SizedBox(height: 50),
             ],
@@ -96,66 +71,77 @@ Cobertura:
     );
   }
 
-  // Diseño para pantallas pequeñas (<= 1000 px)
   Widget _buildMobileLayout(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Imagen arriba
         ClipRRect(
-          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+          borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            'assets/images/moto.png', // Ruta de la imagen en assets
-            width: 300, // Ancho de la imagen
-            height: 200, // Alto de la imagen
-            fit: BoxFit.cover, // Ajuste de la imagen
+            'assets/images/moto.png',
+            width: 300,
+            height: 200,
+            fit: BoxFit.cover,
           ),
         ),
-        SizedBox(height: 40), // Espacio entre la imagen y el texto
-        // Contenido debajo
+        SizedBox(height: 40),
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: size.width * 0.05), // Padding horizontal
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Título "Quienes Somos"
               Text(
                 "Seguro Motos Alta Gama",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5C5664), // Color del título
+                  color: Colors.black,
                 ),
               ),
-              SizedBox(height: 20), // Espacio entre el título y el texto
-              // Texto descriptivo
-              Text(
-                '''Si sos fanático de las motos de alta gama y disfrutas de la libertad, los paisajes y las nuevas culturas; 
-Pensamos en tus necesidades y diseñamos un producto para que puedas disfrutar de tu moto de alta cilindrada.
-
-Cobertura:
-
-•	Robo total
-•	Incendio total
-•	Destrucción Total
-•	Grúa
-
-
-
-''',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87, // Color del texto
-                  height: 1.5, // Espaciado entre líneas
-                ),
-              ),
+              SizedBox(height: 20),
+              _buildRichText(),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildRichText() {
+    return RichText(
+      text: TextSpan(
+        style: TextStyle(
+          fontSize: 20,
+          color: Color(0xFF5C5664),
+          height: 1.5,
+        ),
+        children: [
+          TextSpan(
+            text:
+                'Si sos fanático de las motos de alta gama y disfrutas de la libertad, los paisajes y las nuevas culturas;\n\n',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text:
+                'Pensamos en tus necesidades y diseñamos un producto para que puedas disfrutar de tu moto de alta cilindrada.\n\n',
+          ),
+          TextSpan(
+            text: 'Cobertura:\n\n',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: '• Robo total\n• Incendio total\n• Destrucción Total\n• Grúa\n',
+          ),
+        ],
+      ),
     );
   }
 }
