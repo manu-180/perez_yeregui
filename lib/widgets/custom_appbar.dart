@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:html' as html;
+import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher.dart'; // para kIsWeb
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => Size.fromHeight(200);
 
   @override
   CustomAppBarState createState() => CustomAppBarState();
@@ -15,83 +19,67 @@ class CustomAppBarState extends State<CustomAppBar> {
   String _hoveredItem = "";
   bool _isMenuOpen = false;
 
+  
+
+void openInstagram() {
+  const url = 'https://www.instagram.com/segurosperezyeregui/?utm_source=qr&igsh=MTNiamFxYnoyaWQxaA%3D%3D#';
+
+  if (kIsWeb) {
+    html.window.open(url, '_blank');
+  } else {
+    launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     bool isDesktop = screenWidth > 1000;
 
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [
-            Color(0xFF5C5664),
-            Color(0xFF5C5664),
+  height: 180,
+  width: double.infinity,
+  padding: const EdgeInsets.symmetric(horizontal: 24).copyWith(top: 20),
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      colors: [
+        Color(0xFF5C5664),
+        Color(0xFF5C5664),
+      ],
+    ),
+  ),
+  child: isDesktop
+      ? Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Logo + Instagram
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () => context.go("/"),
+                  child: Image.asset(
+                    'assets/icon/logo-perez-yeregui.png',
+                    height: 130,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                GestureDetector(
+                  onTap: openInstagram,
+                  child: SvgPicture.asset(
+                    'assets/icon/iglogo.svg',
+                    height: 50,
+                  ),
+                ),
+              ],
+            ),
+            // Menú
+            Row(children: _buildNavBarItems()),
           ],
-        ),
-      ),
-      child: isDesktop
-          ? AppBar(
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Text(
-                          "PÉREZ YEREGUI & ASOCIADOS",
-                          style: GoogleFonts.montserrat(
-                            fontSize: screenWidth > 1000 ? 16 : 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            letterSpacing: 1.2,
-                          ),
-                        ),
-                        onTap: () => context.go("/"),
-                      ),
-                      GestureDetector(
-                        child: Text(
-                          "SEGUROS - REASEGUROS",
-                          style: GoogleFonts.montserrat(
-                            fontSize: 12,
-                            color: Colors.white70,
-                            letterSpacing: 1.0,
-                          ),
-                        ),
-                        onTap: () => context.go("/"),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: 30),
-                  IconButton(
-                    icon:
-                        FaIcon(FontAwesomeIcons.facebook, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon:
-                        FaIcon(FontAwesomeIcons.instagram, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon:
-                        FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              centerTitle: false,
-              actions: isDesktop ? _buildNavBarItems() : [_buildMobileMenu()],
-            )
+        )
+
           : AppBar(
               automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
